@@ -1,0 +1,244 @@
+@font-face {
+  font-family: "Product Sans Medium Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Product Sans Medium Regular"),
+    url("ProductSans-Medium.woff") format("woff");
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 0.7;
+  height: 100vh;
+  background-color: white;
+}
+
+.head-light-mode {
+  background-color: #f5f5f5 !important;
+}
+.chat__header {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__header > h4 {
+  color: gray;
+  font-weight: 500;
+}
+
+.chat_name {
+  color: black;
+  font-family: "Product Sans Medium Regular";
+}
+
+.input-light-mode {
+  background-color: #f5f5f5 !important;
+}
+
+.chat__input {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-top: 1px solid lightgray;
+}
+
+.chat__input > form {
+  flex: 1;
+}
+
+.chat__input > form > input {
+  width: 98%;
+  outline-width: 0;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+  padding: 10px 15px;
+  font-family: "Product Sans Medium Regular";
+  font-size: 16px;
+}
+
+.chat__input > form > button {
+  display: none;
+}
+
+.chat__messages {
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat__messages::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.chat__messages::-webkit-scrollbar-track {
+  background: none;
+}
+
+.chat__messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: 10px;
+  background-clip: padding-box;
+  border: 4px solid rgba(0, 0, 0, 0);
+}
+
+.dark-mode-chat-m::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mic_button {
+  margin-left: 19px !important;
+}
+
+.ani {
+  transition: trolo 12s ease;
+}
+
+@keyframes trolo {
+  0% {
+    margin-right: 100px;
+    opacity: 0;
+  }
+  100% {
+    margin-right: 0;
+    opacity: 1;
+  }
+}
+
+.input-dark-mode .listen {
+  margin-left: 15px;
+  font-family: "Product Sans Medium Regular";
+  color: rgba(255, 255, 255, 0.486);
+}
+
+.input-light-mode .listen {
+  margin-left: 15px;
+  color: #3c4043;
+  font-family: "Product Sans Medium Regular";
+}
+
+.spc_button {
+  width: 50px !important;
+}
+
+.toggle__container {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.light-mode {
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.55s ease-out;
+}
+
+.light-mode nav {
+  transition: background-color 0.55s ease-out;
+}
+
+.dark-mode {
+  background-color: #1a1919;
+  color: #999;
+}
+.head-dark-mode .chat_name {
+  color: rgb(238, 238, 238);
+}
+.dark-mode-chat-m {
+  color: #999;
+  background-color: #1a1919;
+}
+
+.input-dark-mode {
+  border-top: 1px solid #5f6368;
+  background-color: #1a1919;
+}
+
+.input-dark-mode .darkinput {
+  background-color: #202124;
+  color: #fff;
+  border-color: #5f6368;
+}
+
+.input-dark-mode .closeicon {
+  color: white !important;
+}
+.head-dark-mode {
+  border-bottom: 1px solid #5f6368;
+  background-color: #1a1919;
+  color: #999;
+}
+h1 {
+  margin: 0;
+}
+
+.toggle {
+  position: relative;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"].checkbox {
+  width: 40px;
+  height: 12px;
+  background: #555;
+  position: relative;
+  border-radius: 5px;
+  border: 0.5px solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  vertical-align: 2px;
+  outline: none;
+}
+
+input[type="checkbox"].checkbox:checked + label {
+  left: 30px;
+}
+
+input[type="checkbox"].checkbox:focus-visible {
+  outline: solid 2px white;
+}
+
+input[type="checkbox"].checkbox + label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  left: 2px;
+  background: #fff;
+  opacity: 1;
+}
+
+.toggle-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.toggle-container > span {
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 4px;
+  margin-right: 2px;
+}
+
+.toggle-container > span:last-child {
+  margin-top: 5px;
+}
+
+.mic_button:disabled {
+  background-color: transparent !important;
+}

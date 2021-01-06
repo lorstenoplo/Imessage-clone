@@ -1,39 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import Imessage from './Imessage';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser,login,logout } from './features/userSlice'
+import Login from './Login';
+import { auth } from './firebase';
 
-interface AppProps {}
+function App() {
 
-function App({}: AppProps) {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    auth.onAuthStateChanged(authUser=>{
+      if(authUser){
+        //user is logged in
+        dispatch(login({
+          uid: authUser.uid,
+          photo: authUser.photoURL,
+          email: authUser.email,
+          displayName: authUser.displayName,
+        }))
+      }else{
+        //user is logged out
+        dispatch(logout());
+      }
+    })
+  },[dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+    //BEM
+    <div className="app">
+    {user ? <Imessage /> : <Login /> }
     </div>
   );
 }

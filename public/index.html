@@ -2,24 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
-    <title>Snowpack App</title>
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Imessage clone created in 2 days by Nishanth.M.Dipali"
+    />
+    <meta
+      name="google-site-verification"
+      content="IjM8xHeV80DYppnsZm7Kx4Ab37P1Ihnl2QdwxtopJXo"
+    />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+    <title>ImessageWeb</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body onload="myFunction()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="loader hidden" id="loader">
+      <img src="./imsglogo.png" alt="imessage-web" srcset="" />
+    </div>
+    <div class="sm-screen">
+      <div class="container_sm">
+        <img src="./imsglogo.png" alt="imessage-web" srcset="" />
+        <p>
+          This is web Version of Imessage please use a PC, Laptop or a Tab in
+          Landscape-mode
+        </p>
+      </div>
+    </div>
+    <div id="root"></div>
     <script type="module" src="/dist/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script>
+      const preloader = document.getElementById('loader');
+      function myFunction() {
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          preloader.style.opacity = '0';
+        }, 1500);
+      }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('./sw.js')
+          .then((reg) => console.log('Success :', reg.scope))
+          .catch((err) => console.log('Failure :', err));
+      } else {
+        alert('sw not possible');
+      }
+    </script>
   </body>
 </html>

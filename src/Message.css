@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Product Sans Medium Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Product Sans Medium Regular'), url('ProductSans-Medium.woff') format('woff');
+    }
+
+.message{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: fit-content;
+    margin: 15px;
+}
+
+.message > p{
+    font-size: medium;
+    padding: 15px;
+    border-radius: 23px;
+    margin: 10px;
+    margin-right: auto;
+    font-family:'Product Sans Medium Regular';
+    max-width: 350px;
+    word-break: break-word;
+    /* text-align: center; */
+}
+
+.message__light{
+    background-color: #f3f3f5;
+    color: #3c4043;
+}
+.dark-mode .messagep{
+    background-color: #2f3033;
+    color: white;
+}
+.dark-mode .message_sender > p{
+    background-color: #3cabfadc;
+    color: white;
+}
+
+.message > small{
+    position: absolute;
+    color: gray;
+    font-size: 8px;
+    bottom: -5px;
+    right: 2px;
+}
+
+.message_sender{
+    margin-left: auto;
+}
+
+.message_sender > .message_photo {
+    order: 1;
+    margin: 15px;
+}
+
+.message_photo{
+    order: 0;
+}
+
+.message_sender > p{
+    background-color: #3cabfa;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: #20A6E8;
+}
+
+.message_sender > p > a{
+    color: white;
+    text-decoration: underline;
+}
+.message_sender > p > a:hover{
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
